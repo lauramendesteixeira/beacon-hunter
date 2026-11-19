@@ -1,16 +1,29 @@
-# 🛡️ Beacon Hunter — Detector de Conexões Periódicas
+<p align="center">
+  <img src="docs/banner.svg" alt="Beacon Hunter — Detector de Conexões Periódicas" width="100%">
+</p>
 
-Detector de **beaconing** (conexões periódicas de backdoors) escrito em Python, com **painel visual 3D** no navegador e gravação das evidências em **MySQL**.
+<p align="center">
+  Detector de <b>beaconing</b> (conexões periódicas de backdoors) escrito em Python,<br>
+  com <b>painel visual 3D</b> no navegador e gravação das evidências em <b>MySQL</b>.
+</p>
 
-Projeto desenvolvido na disciplina **Pós-exploração em Sistemas** do Curso Superior de Tecnologia em Segurança Cibernética — Faculdade SENAI "Paulo Antonio Skaf" (São Caetano do Sul/SP).
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-1d4ed8?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/MySQL-8.0-1e40af?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Scapy-captura%20de%20pacotes-2563eb?style=for-the-badge" alt="Scapy">
+  <img src="https://img.shields.io/badge/Wireshark-valida%C3%A7%C3%A3o-0369a1?style=for-the-badge&logo=wireshark&logoColor=white" alt="Wireshark">
+</p>
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)
-![Scapy](https://img.shields.io/badge/Scapy-captura%20de%20pacotes-2C3E50)
-![Wireshark](https://img.shields.io/badge/Wireshark-valida%C3%A7%C3%A3o-1679A7?logo=wireshark&logoColor=white)
+<p align="center">
+  <sub>Projeto desenvolvido na disciplina <b>Pós-exploração em Sistemas</b> do Curso Superior de Tecnologia em Segurança Cibernética — Faculdade SENAI "Paulo Antonio Skaf" (São Caetano do Sul/SP).</sub>
+</p>
 
-![Painel do Beacon Hunter](docs/painel.png)
-<sub>Painel em modo de demonstração (`--demo`), com tráfego simulado: um beacon em texto puro na porta 9000 e outro cifrado na porta 4444.</sub>
+<p align="center">
+  <img src="docs/painel-3d.gif" alt="Painel do Beacon Hunter em movimento" width="92%">
+</p>
+<p align="center">
+  <sub>Painel em funcionamento no modo de demonstração (<code>--demo</code>), com tráfego simulado: um beacon em texto puro na porta 9000 e outro cifrado na porta 4444.<br>Nesta animação as cores foram trocadas para azul; no painel real, os fluxos suspeitos aparecem em vermelho.</sub>
+</p>
 
 ---
 
@@ -110,6 +123,8 @@ beacon-hunter/
 │   ├── banco.sql        # criação do banco beacon_hunter e das 4 tabelas
 │   └── consultas.sql    # 14 consultas de análise (MIN, MAX, COUNT, SUM, WHERE, GROUP BY, ORDER BY, subconsultas)
 └── docs/
+    ├── banner.svg       # título animado do README
+    ├── painel-3d.gif    # animação do painel
     └── painel.png       # imagem do painel
 ```
 
@@ -132,7 +147,7 @@ beacon-hunter/
 ## 📦 Instalação
 
 ```powershell
-git clone https://github.com/SEU-USUARIO/beacon-hunter.git
+git clone https://github.com/lauramendesteixeira/beacon-hunter.git
 cd beacon-hunter
 python -m pip install -r requirements.txt
 ```
@@ -213,6 +228,9 @@ O detector ignora automaticamente o tráfego do **próprio painel** e das **grav
 ## 📊 Painel visual
 
 Servido pelo próprio detector em `http://127.0.0.1:8765` (sem bibliotecas externas — HTML, CSS e Canvas puros):
+
+![Painel do Beacon Hunter](docs/painel.png)
+<sub>Painel em modo de demonstração (`--demo`), com tráfego simulado: um beacon em texto puro na porta 9000 e outro cifrado na porta 4444.</sub>
 
 - **Alerta** em destaque quando um beacon é detectado;
 - **Indicadores**: pacotes analisados, conexões, fluxos, beacons suspeitos e intervalo detectado;
