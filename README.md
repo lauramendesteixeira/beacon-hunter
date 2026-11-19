@@ -15,19 +15,19 @@
 </p>
 
 <p align="center">
-  <sub>Projeto desenvolvido na disciplina <b>Pós-exploração em Sistemas</b> do Curso Superior de Tecnologia em Segurança Cibernética — Faculdade SENAI "Paulo Antonio Skaf" (São Caetano do Sul/SP).</sub>
+  <sub>Projeto desenvolvido na disciplina <b>Pós-exploração em Sistemas</b> do Curso Superior de Tecnologia em Segurança Cibernética</sub>
 </p>
 
 <p align="center">
   <img src="docs/painel-3d.gif" alt="Painel do Beacon Hunter em movimento" width="92%">
 </p>
 <p align="center">
-  <sub>Painel em funcionamento no modo de demonstração (<code>--demo</code>), com tráfego simulado: um beacon em texto puro na porta 9000 e outro cifrado na porta 4444.<br>Nesta animação as cores foram trocadas para azul; no painel real, os fluxos suspeitos aparecem em vermelho.</sub>
+  <sub>Painel em funcionamento no modo de demonstração (<code>--demo</code>), com tráfego simulado: um beacon em texto puro na porta 9000 e outro cifrado na porta 4444.</sub>
 </p>
 
 ---
 
-## 📌 Sumário
+## 🔷 Sumário
 
 - [O problema](#-o-problema)
 - [Como o detector funciona](#-como-o-detector-funciona)
@@ -41,11 +41,10 @@
 - [Resultados obtidos](#-resultados-obtidos)
 - [Limitações](#-limitações)
 - [Aviso legal](#-aviso-legal)
-- [Autora](#-autora)
 
 ---
 
-## 🎯 O problema
+## 🔷 O problema
 
 Depois de invadir uma máquina (pós-exploração), o atacante quer **manter o acesso**. Uma técnica comum é deixar um programa que, de tempos em tempos, abre uma **conexão reversa** para o servidor do atacante ("liga para casa") — o chamado **beacon**. Como a conexão parte de dentro da rede, ela costuma passar pelo firewall.
 
@@ -62,7 +61,7 @@ O laboratório usa dois scripts fornecidos pelo professor:
 
 ---
 
-## 🔍 Como o detector funciona
+## 🔷 Como o detector funciona
 
 ```mermaid
 flowchart LR
@@ -109,7 +108,7 @@ Exemplo de saída no terminal (modo `--demo`):
 
 ---
 
-## 📁 Estrutura do repositório
+## 🔷 Estrutura do repositório
 
 ```text
 beacon-hunter/
@@ -130,7 +129,7 @@ beacon-hunter/
 
 ---
 
-## 📋 Requisitos
+## 🔷 Requisitos
 
 | Item | Para quê |
 |---|---|
@@ -144,7 +143,7 @@ beacon-hunter/
 
 ---
 
-## 📦 Instalação
+## 🔷 Instalação
 
 ```powershell
 git clone https://github.com/lauramendesteixeira/beacon-hunter.git
@@ -154,7 +153,7 @@ python -m pip install -r requirements.txt
 
 ---
 
-## 🚀 Como usar
+## 🔷 Como usar
 
 ### 1. Laboratório completo (3 terminais)
 
@@ -200,7 +199,7 @@ Gera tráfego simulado com dois beacons (um em texto puro e um com dados aleató
 
 ---
 
-## 🔧 Opções da linha de comando
+## 🔷 Opções da linha de comando
 
 | Opção | Padrão | Descrição |
 |---|---|---|
@@ -225,7 +224,7 @@ O detector ignora automaticamente o tráfego do **próprio painel** e das **grav
 
 ---
 
-## 📊 Painel visual
+## 🔷 Painel visual
 
 Servido pelo próprio detector em `http://127.0.0.1:8765` (sem bibliotecas externas — HTML, CSS e Canvas puros):
 
@@ -241,7 +240,7 @@ Servido pelo próprio detector em `http://127.0.0.1:8765` (sem bibliotecas exter
 
 ---
 
-## 💾 Banco de dados MySQL
+## 🔷 Banco de dados MySQL
 
 Banco **`beacon_hunter`** (script em [`sql/banco.sql`](sql/banco.sql)):
 
@@ -325,7 +324,7 @@ O arquivo [`sql/consultas.sql`](sql/consultas.sql) traz **14 consultas** de aná
 
 ---
 
-## 📈 Resultados obtidos
+## 🔷 Resultados obtidos
 
 Em laboratório (Windows, captura ao vivo por cerca de 7 minutos, com o `script1.py` enviando a cada 30 s):
 
@@ -347,7 +346,7 @@ Os resultados foram **validados no Wireshark** (filtro `tcp.port == 9000`): cada
 
 ---
 
-## 🚧 Limitações
+## 🔷 Limitações
 
 - Analisa apenas **TCP** e considera como "nova conexão" o pacote SYN. Beacons que reaproveitam uma única conexão aberta (ou usam UDP/DNS) não são detectados por esta versão.
 - Beacons com **jitter** alto (intervalo aleatório proposital) podem passar do limite de 15% de variação — o valor pode ser ajustado com `--tolerancia`.
@@ -356,16 +355,10 @@ Os resultados foram **validados no Wireshark** (filtro `tcp.port == 9000`): cada
 
 ---
 
-## 📜 Aviso legal
+## 🔷 Aviso legal
 
 Projeto **educacional**, desenvolvido para estudar técnicas de pós-exploração e, principalmente, como **detectá-las**. Execute os scripts de laboratório apenas em máquinas e redes **suas ou com autorização**. O detector apenas observa o tráfego da própria máquina.
 
 ---
-
-## 👩‍💻 Autora
-
-**Laura Mendes Teixeira**
-Curso Superior de Tecnologia em Segurança Cibernética — Faculdade SENAI "Paulo Antonio Skaf"
-Disciplina: Pós-exploração em Sistemas — Prof. Paulo Alexandre Martin
 
 Os scripts da pasta `laboratorio/` foram fornecidos pelo professor como parte da atividade.
